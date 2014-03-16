@@ -7,6 +7,8 @@ LOCAL_MODULE := cocos2dcpp_shared
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
+				   ../../Classes/test/FixtureTest/FixtureTest.cpp \
+				   ../../Classes/test/WorldTest/WorldTest.cpp \
                    ../../Classes/AppDelegate.cpp \
                    ../../Classes/HelloWorldScene.cpp \
                    ../../Classes/Utils/GLES-Render.cpp \

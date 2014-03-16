@@ -6,6 +6,8 @@
 #include "cocos-ext.h"
 #include <vector>
 
+#define PTM_RATIO 32
+
 class HelloWorld : public cocos2d::Layer
 {
 public:
@@ -41,6 +43,8 @@ protected:
 
 	b2World* m_ptrPhysicsWorld;
 	GLESDebugDraw* m_ptrDebugDraw;
+
+	bool m_bIsDebugOpen;
 	
 private:
 	

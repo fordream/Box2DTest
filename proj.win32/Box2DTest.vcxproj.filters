@@ -19,6 +19,9 @@
     <Filter Include="Classes\test\FixtureTest">
       <UniqueIdentifier>{25da7e49-1aa4-4cd1-be5b-fa24f887cee7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\test\WorldTest">
+      <UniqueIdentifier>{d3cfbdc6-7524-485c-b17a-8c8b4b38a1ca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -36,6 +39,9 @@
     <ClCompile Include="..\Classes\test\FixtureTest\FixtureTest.cpp">
       <Filter>Classes\test\FixtureTest</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\test\WorldTest\WorldTest.cpp">
+      <Filter>Classes\test\WorldTest</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -52,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\test\FixtureTest\FixtureTest.h">
       <Filter>Classes\test\FixtureTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\test\WorldTest\WorldTest.h">
+      <Filter>Classes\test\WorldTest</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

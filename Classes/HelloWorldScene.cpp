@@ -5,11 +5,11 @@ using namespace std;
 USING_NS_CC;
 USING_NS_CC_EXT;
 
-#define PTM_RATIO 40
+
 
 HelloWorld::HelloWorld()
 {
-
+	m_bIsDebugOpen = true;
 }
 
 HelloWorld::~HelloWorld()
@@ -92,13 +92,22 @@ bool HelloWorld::init()
 	this->addChild(label, 1);
 
 	// add "HelloWorld" splash screen"
-	auto sprite = Sprite::create("HelloWorld.png");
+	/*auto sprite = Sprite::create("HelloWorld.png");*/
 
 	// position the sprite on the center of the screen
-	sprite->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+	/*sprite->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));*/
 
 	// add the sprite as a child to this layer
-	this->addChild(sprite, 0);
+	/*this->addChild(sprite, 0);*/
+	m_ptrDebugDraw = new GLESDebugDraw(PTM_RATIO);
+	uint32 flags = 0;
+	flags += b2Draw::e_shapeBit;
+	flags += b2Draw::e_jointBit;
+	flags += b2Draw::e_aabbBit;
+	flags += b2Draw::e_pairBit;
+	flags += b2Draw::e_centerOfMassBit;
+	m_ptrDebugDraw->SetFlags(flags);
+
 
 	initPhysics();
 
@@ -119,7 +128,7 @@ void HelloWorld::menuCloseCallback(Object* pSender)
 
 void HelloWorld::menuClosePhysicDebugDraw(Object* pSender)
 {
-
+	m_bIsDebugOpen = !m_bIsDebugOpen;
 }
 
 void HelloWorld::initPhysics()
@@ -131,15 +140,7 @@ void HelloWorld::initPhysics()
 	m_ptrPhysicsWorld->SetAllowSleeping(true);
 	m_ptrPhysicsWorld->SetContinuousPhysics(true);
 
-	m_ptrDebugDraw = new GLESDebugDraw(PTM_RATIO);
 
-	uint32 flags = 0;
-	flags += b2Draw::e_shapeBit;
-	flags += b2Draw::e_jointBit;
-	flags += b2Draw::e_aabbBit;
-	flags += b2Draw::e_pairBit;
-	flags += b2Draw::e_centerOfMassBit;
-	m_ptrDebugDraw->SetFlags(flags);
 
 	m_ptrPhysicsWorld->SetDebugDraw(m_ptrDebugDraw);
 
@@ -187,6 +188,9 @@ void HelloWorld::initPhysics()
 void HelloWorld::draw()
 {
 	Layer::draw();
+
+	if (!m_bIsDebugOpen)
+		return
 	GL::enableVertexAttribs(cocos2d::GL::VERTEX_ATTRIB_FLAG_POSITION);
 
 	kmGLPushMatrix();
@@ -215,7 +219,7 @@ void HelloWorld::update(float dt)
 	//http://gafferongames.com/game-physics/fix-your-timestep/
 
 	int velocityIterations = 8;
-	int positionIterations = 1;
+	int positionIterations = 3;
 
 	// Instruct the world to perform a single step of simulation. It is
 	// generally best to keep the time step and iterations fixed.

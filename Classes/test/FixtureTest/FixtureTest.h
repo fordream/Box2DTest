@@ -16,7 +16,7 @@ public:
 
 	virtual bool init() override;
 
-
+	virtual void addNewSpriteAtPosition(cocos2d::Point p);
 
 
 };
