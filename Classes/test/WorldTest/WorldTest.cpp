@@ -86,9 +86,12 @@ void WorldTest::initPhysics()
 // 				//力是需要不断的去累加到后面才有效果
 // 				body->ApplyForce(b2Vec2(0, 50), body->GetWorldCenter(), true);
 // 			}
-			for (int i = 0; i < 20;i++)
+			//for (int i = 0; i < 20;i++)
 				//正数为逆时针旋转， 负数为顺时针旋转
-				body->ApplyTorque(-40, true);
+				//body->ApplyTorque(-40, true);
+
+			//重力反转
+			body->SetGravityScale(-1);
 
 				break;
 
@@ -112,9 +115,9 @@ void WorldTest::initPhysics()
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), sprites[2]);
 
 	bodydef.type = b2_staticBody;
-	bodydef.position.Set(0, 0);
+	bodydef.position.Set(0, 4);
 	b2EdgeShape edgeShape;
-	edgeShape.Set(b2Vec2(-15, 0), b2Vec2(15, 0));
+	edgeShape.Set(b2Vec2(3, 0), b2Vec2((Director::getInstance()->getVisibleSize().width/PTM_RATIO-3), 0));
 	fixturedef.shape = &edgeShape;
 	m_ptrPhysicsWorld->CreateBody(&bodydef)->CreateFixture(&fixturedef);
 }

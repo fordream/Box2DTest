@@ -22,6 +22,12 @@
     <Filter Include="Classes\test\WorldTest">
       <UniqueIdentifier>{d3cfbdc6-7524-485c-b17a-8c8b4b38a1ca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\test\MoveTest">
+      <UniqueIdentifier>{892500ee-cb35-48ee-be10-e186e7238f43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\test\ContactTest">
+      <UniqueIdentifier>{d9da0fb1-67ea-425a-be4f-181b4de89aa1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,6 +48,12 @@
     <ClCompile Include="..\Classes\test\WorldTest\WorldTest.cpp">
       <Filter>Classes\test\WorldTest</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\test\MoveTest\MoveTest.cpp">
+      <Filter>Classes\test\MoveTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\test\ContactTest\ContactTest.cpp">
+      <Filter>Classes\test\ContactTest</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -61,6 +73,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\test\WorldTest\WorldTest.h">
       <Filter>Classes\test\WorldTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\test\MoveTest\MoveTest.h">
+      <Filter>Classes\test\MoveTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\test\ContactTest\ContactTest.h">
+      <Filter>Classes\test\ContactTest</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
