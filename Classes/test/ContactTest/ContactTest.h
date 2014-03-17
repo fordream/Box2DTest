@@ -32,7 +32,7 @@ public:
 
 		b2BodyDef bodydef;
 		bodydef.type = b2_dynamicBody;
-		bodydef.position.Set(10, 10);
+		bodydef.position.Set(4, 10);
 		m_ptrBody = world->CreateBody(&bodydef);
 		m_ptrBody->SetUserData(this);
 
@@ -48,6 +48,34 @@ public:
 
 	}
 
+	Ball(b2World* world, float radius, b2Color color, uint16 categoryBits, uint16 maskBits)
+	{
+		m_ptrBody = nullptr;
+		m_fradius = radius;
+		m_color = color;
+
+		b2BodyDef bodydef;
+		bodydef.type = b2_dynamicBody;
+		bodydef.position.Set(10, 10);
+		m_ptrBody = world->CreateBody(&bodydef);
+		m_ptrBody->SetUserData(this);
+
+		b2CircleShape shape;
+		shape.m_p.Set(0, 0);
+		shape.m_radius = m_fradius;
+
+		b2FixtureDef fixturedef;
+		fixturedef.shape = &shape;
+		fixturedef.density = 1;
+		fixturedef.filter.categoryBits = categoryBits;
+		fixturedef.filter.maskBits = maskBits;
+		m_ptrBody->CreateFixture(&fixturedef);
+
+
+	}
+
+
+
 	virtual ~Ball(){}
 
 	void render();
@@ -59,6 +87,8 @@ public:
 
 private:
 	bool m_bContacting = false;
+
+	b2Color m_color;
 
 };
 

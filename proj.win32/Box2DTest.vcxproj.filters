@@ -28,6 +28,9 @@
     <Filter Include="Classes\test\ContactTest">
       <UniqueIdentifier>{d9da0fb1-67ea-425a-be4f-181b4de89aa1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\test\CollisionFlagTest">
+      <UniqueIdentifier>{a822caf7-c38e-49ec-8d3b-ba69e9585890}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -54,6 +57,9 @@
     <ClCompile Include="..\Classes\test\ContactTest\ContactTest.cpp">
       <Filter>Classes\test\ContactTest</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\test\CollisionFlagTest\CollisionFlagTest.cpp">
+      <Filter>Classes\test\CollisionFlagTest</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -79,6 +85,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\test\ContactTest\ContactTest.h">
       <Filter>Classes\test\ContactTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\test\CollisionFlagTest\CollisionFlagTest.h">
+      <Filter>Classes\test\CollisionFlagTest</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -11,6 +11,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 				   ../../Classes/test/WorldTest/WorldTest.cpp \
 				   ../../Classes/test/MoveTest/MoveTest.cpp \
 				   ../../Classes/test/ContactTest/ContactTest.cpp \
+				   ../../Classes/test/CollisionFlagTest/CollisionFlagTest.cpp \
                    ../../Classes/AppDelegate.cpp \
                    ../../Classes/HelloWorldScene.cpp \
                    ../../Classes/Utils/GLES-Render.cpp \

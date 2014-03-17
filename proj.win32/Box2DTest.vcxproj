@@ -137,6 +137,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\test\CollisionFlagTest\CollisionFlagTest.cpp" />
     <ClCompile Include="..\Classes\test\ContactTest\ContactTest.cpp" />
     <ClCompile Include="..\Classes\test\FixtureTest\FixtureTest.cpp" />
     <ClCompile Include="..\Classes\test\MoveTest\MoveTest.cpp" />
@@ -147,6 +148,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\test\CollisionFlagTest\CollisionFlagTest.h" />
     <ClInclude Include="..\Classes\test\ContactTest\ContactTest.h" />
     <ClInclude Include="..\Classes\test\FixtureTest\FixtureTest.h" />
     <ClInclude Include="..\Classes\test\MoveTest\MoveTest.h" />
