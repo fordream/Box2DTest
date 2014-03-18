@@ -8,6 +8,10 @@
 
 #define PTM_RATIO 32
 
+#define RADTODEG 57.29577951f
+#define DEGTORAD 0.017453293f
+
+
 class HelloWorld : public cocos2d::Layer
 {
 public:

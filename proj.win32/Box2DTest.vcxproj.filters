@@ -31,6 +31,9 @@
     <Filter Include="Classes\test\CollisionFlagTest">
       <UniqueIdentifier>{a822caf7-c38e-49ec-8d3b-ba69e9585890}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\test\JointTest">
+      <UniqueIdentifier>{1a7164ef-f236-4be0-9ec9-4e60903d6549}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -60,6 +63,9 @@
     <ClCompile Include="..\Classes\test\CollisionFlagTest\CollisionFlagTest.cpp">
       <Filter>Classes\test\CollisionFlagTest</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\test\JointTest\JointTest.cpp">
+      <Filter>Classes\test\JointTest</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -88,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\test\CollisionFlagTest\CollisionFlagTest.h">
       <Filter>Classes\test\CollisionFlagTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\test\JointTest\JointTest.h">
+      <Filter>Classes\test\JointTest</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

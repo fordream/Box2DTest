@@ -6,8 +6,6 @@
 #include <vector>
 USING_NS_CC;
 
-#define RADTODEG 57.29577951f
-#define DEGTORAD 0.017453293f
 
 
 class CustomContactListener : public b2ContactListener
