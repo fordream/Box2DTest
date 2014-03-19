@@ -142,6 +142,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\test\FixtureTest\FixtureTest.cpp" />
     <ClCompile Include="..\Classes\test\JointTest\JointTest.cpp" />
     <ClCompile Include="..\Classes\test\MoveTest\MoveTest.cpp" />
+    <ClCompile Include="..\Classes\test\TinyWings\MainGame.cpp" />
+    <ClCompile Include="..\Classes\test\TinyWings\Terrain.cpp" />
     <ClCompile Include="..\Classes\test\WorldTest\WorldTest.cpp" />
     <ClCompile Include="..\Classes\Utils\GLES-Render.cpp" />
     <ClCompile Include="main.cpp" />
@@ -154,6 +156,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\test\FixtureTest\FixtureTest.h" />
     <ClInclude Include="..\Classes\test\JointTest\JointTest.h" />
     <ClInclude Include="..\Classes\test\MoveTest\MoveTest.h" />
+    <ClInclude Include="..\Classes\test\TinyWings\MainGame.h" />
+    <ClInclude Include="..\Classes\test\TinyWings\Terrain.h" />
     <ClInclude Include="..\Classes\test\WorldTest\WorldTest.h" />
     <ClInclude Include="..\Classes\Utils\GLES-Render.h" />
     <ClInclude Include="main.h" />

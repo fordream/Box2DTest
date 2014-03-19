@@ -112,9 +112,6 @@ void Ball::render()
 		log("Contact true");
 	else
 		log("Contact false");
-
-	glColor3f(m_color.r, m_color.g, m_color.b);
-
 // 	glPointSize(4);
 // 	glBegin(GL_POINTS);
 // 	glVertex2f(-0.5, 0.5);

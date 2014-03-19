@@ -34,6 +34,9 @@
     <Filter Include="Classes\test\JointTest">
       <UniqueIdentifier>{1a7164ef-f236-4be0-9ec9-4e60903d6549}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\test\TinyWings">
+      <UniqueIdentifier>{ada1e002-81c2-49ab-b9e5-229e7477376c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -66,6 +69,12 @@
     <ClCompile Include="..\Classes\test\JointTest\JointTest.cpp">
       <Filter>Classes\test\JointTest</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\test\TinyWings\MainGame.cpp">
+      <Filter>Classes\test\TinyWings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\test\TinyWings\Terrain.cpp">
+      <Filter>Classes\test\TinyWings</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -97,6 +106,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\test\JointTest\JointTest.h">
       <Filter>Classes\test\JointTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\test\TinyWings\MainGame.h">
+      <Filter>Classes\test\TinyWings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\test\TinyWings\Terrain.h">
+      <Filter>Classes\test\TinyWings</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

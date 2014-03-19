@@ -12,6 +12,9 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 				   ../../Classes/test/MoveTest/MoveTest.cpp \
 				   ../../Classes/test/ContactTest/ContactTest.cpp \
 				   ../../Classes/test/CollisionFlagTest/CollisionFlagTest.cpp \
+				   ../../Classes/test/JointTest/jointTest.cpp \
+				   ../../Classes/test/TInyWings/MainGame.cpp \
+				   ../../Classes/test/TinyWings/Terrain.cpp \
                    ../../Classes/AppDelegate.cpp \
                    ../../Classes/HelloWorldScene.cpp \
                    ../../Classes/Utils/GLES-Render.cpp \

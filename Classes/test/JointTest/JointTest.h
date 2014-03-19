@@ -10,6 +10,10 @@ enum class JointType
 	Revolute,  //旋转连接器
 	Prismatic, //平移连接器
 	Distance, //距离连接器
+	Friction, //摩擦力连接器
+	Pulley,    //滑轮连接器
+	Gear,    //齿轮连接器
+	Mouse, //鼠标连接器
 };
 
 class JointTest : public HelloWorld
