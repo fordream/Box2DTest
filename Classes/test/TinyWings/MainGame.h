@@ -8,6 +8,7 @@
 USING_NS_CC;
 
 class Terrain;
+class Hero;
 
 #define kMaxHillKeyPoints 1000
 
@@ -25,8 +26,6 @@ public:
 	virtual void onEnter() override;
 	virtual void onExit() override;
 
-	virtual void onDraw() override;
-
 	virtual void update(float dt) override;
 
 	void initPhysics();
@@ -34,6 +33,8 @@ public:
 	void createTestBodyAtPosition(Point p);
 
 	virtual void onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event) override;
+	virtual void onTouchesEnded(const std::vector<Touch*>& touches, Event *unused_event) override;
+	virtual void onTouchesCancelled(const std::vector<Touch*>&touches, Event *unused_event) override;
 
 protected:
 	Color4B m_LayerColor;
@@ -54,6 +55,9 @@ private:
 	b2World* _world;
 	GLESDebugDraw* _debugDraw;
 	kmMat4 _modelViewMV;
+
+	Hero* _hero;
+	bool _tapDown;
 
 };
 #endif

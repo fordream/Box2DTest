@@ -75,6 +75,9 @@
     <ClCompile Include="..\Classes\test\TinyWings\Terrain.cpp">
       <Filter>Classes\test\TinyWings</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\test\TinyWings\Hero.cpp">
+      <Filter>Classes\test\TinyWings</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -111,6 +114,9 @@
       <Filter>Classes\test\TinyWings</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\test\TinyWings\Terrain.h">
+      <Filter>Classes\test\TinyWings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\test\TinyWings\Hero.h">
       <Filter>Classes\test\TinyWings</Filter>
     </ClInclude>
   </ItemGroup>

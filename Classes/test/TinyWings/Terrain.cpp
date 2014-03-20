@@ -38,12 +38,30 @@ bool Terrain::init()
 	generateHills();
 	resetHillVertices();
 
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("TinySeal.plist");
+
+	_batchNode = SpriteBatchNode::create("TinySeal.png");
+	_batchNode->setPosition(Point(0, 0));
+	addChild(_batchNode);
+
 	return true;
 }
 
 void Terrain::draw()
 {
-	for (int i = 1; i < kMaxHillKeyPoints; ++i)
+	if (nullptr!=_spripes)
+	{
+// 		glBindTexture(GL_TEXTURE_2D, _spripes->getTexture()->getName());
+// 		glDisableClientState(GL_COLOR_ARRAY);
+// 
+// 		ccDrawColor4B(255, 255, 255, 255);
+// 		glVertexPointer(2, GL_FLOAT, 0, _hillVertices);
+// 		glTexCoordPointer(2, GL_FLOAT, 0, _hillTexCoords);
+// 		glDrawArrays(GL_TRIANGLE_STRIP, 0, (GLsizei)_nHillVertices);
+	}
+
+
+	for (int i = MAX(_fromKeyPointI, 1); i <=_toKeyPointI; ++i)
 	{
 
 		ccDrawColor4B(255, 255, 255, 255);
@@ -134,10 +152,10 @@ void Terrain::resetHillVertices()
 	resetBody();
 
 	// key points interval for drawing
-	while (_hillKeyPoints[_fromKeyPointI + 1].x < m_nOffsetX - winSize.width / 8 ) {
+	while (_hillKeyPoints[_fromKeyPointI + 1].x <= (m_nOffsetX - winSize.width) /2/getScale()) {
 		_fromKeyPointI++;
 	}
-	while (_hillKeyPoints[_toKeyPointI].x < m_nOffsetX + winSize.width * 9 / 8 ) {
+	while (_hillKeyPoints[_toKeyPointI].x <= (m_nOffsetX + winSize.width * 8)/2/getScale() ) {
 		_toKeyPointI++;
 	}
 

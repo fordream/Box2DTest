@@ -11,10 +11,10 @@ USING_NS_CC_EXT;
 
 #define PTM_RATIO 32
 
-#define kMaxHillKeyPoints 1000
+#define kMaxHillKeyPoints 2000
 #define kHillSegmentWidth 10
 #define kMaxHillVertices 4000
-#define kMaxBorderVertices 4000 
+#define kMaxBorderVertices 800 
 
 
 
@@ -30,9 +30,10 @@ public:
 
 	virtual void draw() override;
 
-	void setOffset(int offsetX){
-		m_nOffsetX -= offsetX;
-		this->setPosition(Point(m_nOffsetX, 0));
+	void setOffset(float offsetX){
+		m_nOffsetX = offsetX;
+		Size size = Director::getInstance()->getWinSize();
+		this->setPosition(Point(m_nOffsetX*this->getScale(), 0));
 		resetHillVertices();
 	}
 
@@ -49,9 +50,10 @@ public:
 	void setWorld(b2World* world);
 	CC_SYNTHESIZE(GLESDebugDraw*, _debugDraw, DebugDraw);
 	CC_SYNTHESIZE(b2Body*, _body, Body);
+	SpriteBatchNode* getBatchNode(){ return this->_batchNode; }
 
 private:
-	int m_nOffsetX = 0;
+	float m_nOffsetX = 0.0f;
 
 	Point _hillKeyPoints[kMaxHillKeyPoints];
 
@@ -66,6 +68,8 @@ private:
 	Point _hillTexCoords[kMaxHillVertices];
 	int _nBorderVertices;
 	Point _borderVertices[kMaxBorderVertices];
+
+	SpriteBatchNode* _batchNode;
 
 };
 #endif // !_TERRAIN_H

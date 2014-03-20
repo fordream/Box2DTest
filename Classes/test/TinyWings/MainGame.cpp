@@ -1,10 +1,12 @@
 #include "MainGame.h"
 #include "Terrain.h"
+#include "Hero.h"
 
 MainGame::MainGame()
 {
 	m_LayerColor = Color4B(10, 10, 10, 100);
 	m_ptrGround = nullptr;
+	_tapDown = false;
 }
 
 MainGame::~MainGame()
@@ -46,12 +48,19 @@ bool MainGame::init()
 
 	initPhysics();
 
+	
+
 	_terrain = Terrain::create(_world);
 	_terrain->setDebugDraw(_debugDraw);
 	_terrain->setPosition(Point(0, 40));
-	this->addChild(_terrain, 1);
+	this->addChild(_terrain, 3);
 
 	genBackground();
+
+	this->setScale(0.5f);
+
+	_hero = Hero::create(_world);
+	_terrain->getBatchNode()->addChild(_hero);
 
 	scheduleUpdate();
 
@@ -64,6 +73,8 @@ void MainGame::onEnter()
 	LayerColor::onEnter();
 	auto listener = EventListenerTouchAllAtOnce::create();
 	listener->onTouchesBegan = CC_CALLBACK_2(MainGame::onTouchesBegan, this);
+	listener->onTouchesEnded = CC_CALLBACK_2(MainGame::onTouchesEnded, this);
+	listener->onTouchesCancelled = CC_CALLBACK_2(MainGame::onTouchesCancelled, this);
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 }
 
@@ -107,7 +118,7 @@ void MainGame::genBackground()
 // 	tx.wrapS = GL_REPEAT;
 // 	tx.wrapT = GL_REPEAT;
 // 	m_ptrGround->getTexture()->setTexParameters(tx);
-// 	addChild(m_ptrGround, 100);
+// 	addChild(m_ptrGround);
 
 	Color4F color3 = randomBrightColor();
 	Color4F color4 = randomBrightColor();
@@ -150,15 +161,6 @@ Sprite* MainGame::spriteWithColor(Color4F color, float textureSize)
 }
 
 
-void MainGame::onDraw()
-{
-	LayerColor::onDraw();
-// 	kmMat4 oldMV;
-// 	kmGLGetMatrix(KM_GL_MODELVIEW, &oldMV);
-// 	kmGLLoadMatrix(&_modelViewMV);
-// 	_world->DrawDebugData();
-// 	kmGLLoadMatrix(&oldMV);
-}
 
 Sprite* MainGame::stripedSpriteWithColor1(Color4F color1, Color4F color2, float textureSize, int nStripes)
 {
@@ -204,7 +206,26 @@ Sprite* MainGame::stripedSpriteWithColor1(Color4F color1, Color4F color2, float 
 
 void MainGame::update(float dt)
 {
-	_terrain->setOffset(1);
+	if (_tapDown) {
+		if (!_hero->isAwake()) {
+			_hero->wake();
+			_tapDown = false;
+		}
+		else {
+			_hero->dive();
+		}
+	}
+	_hero->limitVelocity();
+	_hero->update(dt);
+
+	Size winSize = Director::getInstance()->getWinSize();
+	float scale = (winSize.height * 3 / 4) / _hero->getPosition().y;
+	if (scale > 1)
+		scale = 1;
+	_terrain->setScale(scale);
+
+	float offset = _hero->getPosition().x;
+	_terrain->setOffset(-offset);
 
 	static double UPDATE_INTERVAL = 1.0f / 60.0f;
 	static double MAX_CYCLES_PER_FRAME = 5;
@@ -273,8 +294,20 @@ void MainGame::onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_
 
 		auto location = _terrain->convertTouchToNodeSpace(touch);
 
-		createTestBodyAtPosition(location);
+		/*createTestBodyAtPosition(location);*/
 	}
+	genBackground();
+	_tapDown = true;
+}
+
+void MainGame::onTouchesEnded(const std::vector<Touch*>& touches, Event *unused_event)
+{
+	_tapDown = false;
+}
+
+void MainGame::onTouchesCancelled(const std::vector<Touch*>&touches, Event *unused_event)
+{
+	_tapDown = false;
 }
 
 
